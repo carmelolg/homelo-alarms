@@ -1,23 +1,28 @@
-package it.carmelolagamba.springboot;
+package it.carmelolagamba.homelo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
-import it.carmelolagamba.springboot.config.ApplicationProperties;
+import it.carmelolagamba.homelo.config.ApplicationProperties;
 
-@org.springframework.boot.autoconfigure.SpringBootApplication
+@SpringBootApplication(exclude = {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class}, scanBasePackages = {"it.carmelolagamba", "it.carmelolagamba.mongo"})
 @EnableConfigurationProperties
 @ConfigurationPropertiesScan
-public class SpringBootApplication implements CommandLineRunner {
+@EnableScheduling
+public class HomeloApp implements CommandLineRunner {
 
 	@Autowired
 	private ApplicationProperties config;
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootApplication.class, args);
+		SpringApplication.run(HomeloApp.class, args);
 	}
 
 	@Override

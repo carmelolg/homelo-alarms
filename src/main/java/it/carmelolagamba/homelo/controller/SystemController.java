@@ -1,13 +1,14 @@
-package it.carmelolagamba.springboot.controller;
+package it.carmelolagamba.homelo.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import it.carmelolagamba.springboot.config.ApplicationProperties;
-import it.carmelolagamba.springboot.dto.system.InfoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import it.carmelolagamba.homelo.config.ApplicationProperties;
+import it.carmelolagamba.homelo.dto.system.InfoDto;
 
 @RestController
 @Api(value = "System Information")
@@ -16,6 +17,7 @@ public class SystemController {
 	@Autowired
 	private ApplicationProperties config;
 
+	
 	@ApiOperation(value = "Alive test")
 	@RequestMapping(method = RequestMethod.GET, path = "/ping")
 	public String ping() {

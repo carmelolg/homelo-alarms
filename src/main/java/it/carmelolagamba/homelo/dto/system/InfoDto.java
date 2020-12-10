@@ -1,4 +1,4 @@
-package it.carmelolagamba.springboot.dto.system;
+package it.carmelolagamba.homelo.dto.system;
 
 public class InfoDto {
 

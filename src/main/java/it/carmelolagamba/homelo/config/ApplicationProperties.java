@@ -1,4 +1,4 @@
-package it.carmelolagamba.springboot.config;
+package it.carmelolagamba.homelo.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
