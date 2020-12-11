@@ -13,3 +13,11 @@ mongo:
   auth: ${MONGO_AUTH}
   user: ${MONGO_USER}
   password: ${MONGO_PASSWORD}
+  
+email:
+  user: ${MAIL_USR}
+  password: ${MAIL_PSW}
+  smtpHost: ${MAIL_SMTP_HOST}
+  smtpPort: ${MAIL_SMTP_PORT}
+  smtpSSLEnabled: ${MAIL_SMTP_SSL}
+  smtpAuth: ${MAIL_SMTP_AUTH}

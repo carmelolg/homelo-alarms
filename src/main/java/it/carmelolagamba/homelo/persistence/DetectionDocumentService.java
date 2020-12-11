@@ -26,10 +26,11 @@ public class DetectionDocumentService extends AbstractDocumentService {
 	@Autowired
 	private DetectionCollectionService detectionCollectionService;
 	
-	public Detection findLastDetection(Home home, String metric) {
+	public Detection findLastDetection(Home home, String room, String metric) {
 		
 		BasicDBObject houseFilter = BasicObjectUtils.getFilterObject(new Filter("house", FilterOperator.EQUALS, home.getCode()));
-		BasicDBObject filters = BasicObjectUtils.getFilterObject(new Filter(metric, FilterOperator.EXISTS, true), houseFilter);
+		BasicDBObject roomFilter = BasicObjectUtils.getFilterObject(new Filter("room", FilterOperator.EQUALS, room), houseFilter);
+		BasicDBObject filters = BasicObjectUtils.getFilterObject(new Filter(metric, FilterOperator.EXISTS, true), roomFilter);
 		
 		HashMap<String, Object> sortFilters = new HashMap<String, Object>();
 		sortFilters.put("_id", -1);
@@ -41,7 +42,7 @@ public class DetectionDocumentService extends AbstractDocumentService {
 	
 	public static void main(String[] args) {
 		DetectionDocumentService d =  new DetectionDocumentService();
-		d.findLastDetection(new Home(), "gas");
+		d.findLastDetection(new Home(), "Kitchen", "gas");
 		
 //		Date currentDate = new Date(System.currentTimeMillis());
 //		

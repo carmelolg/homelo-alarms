@@ -1,4 +1,4 @@
-package it.carmelolagamba.homelo.dto.system;
+package it.carmelolagamba.homelo.dto;
 
 public class InfoDto {
 

@@ -8,7 +8,7 @@ public class User {
 	@BsonId
 	private ObjectId id;
 
-	private String user, house, token;
+	private String user, house, token, email;
 
 	public ObjectId getId() {
 		return id;
@@ -40,6 +40,14 @@ public class User {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

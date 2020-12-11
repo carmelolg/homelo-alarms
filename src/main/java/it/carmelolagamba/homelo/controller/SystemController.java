@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import it.carmelolagamba.homelo.config.ApplicationProperties;
-import it.carmelolagamba.homelo.dto.system.InfoDto;
+import it.carmelolagamba.homelo.dto.InfoDto;
 
 @RestController
 @Api(value = "System Information")

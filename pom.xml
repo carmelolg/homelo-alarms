@@ -17,14 +17,15 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<homelo.read.url>https://mymavenrepo.com/repo/qqO8m3wH0tgQfo7dogJd/</homelo.read.url>
 	</properties>
 
 	<repositories>
-        <repository>
-            <id>homelo.read</id>
-            <url>${homelo.read.url}</url>
-        </repository>
-    </repositories>
+		<repository>
+			<id>homelo.read</id>
+			<url>${homelo.read.url}</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
 
@@ -79,6 +80,12 @@
 			<artifactId>mongo-connector</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.2</version>
 		</dependency>
 
 	</dependencies>
