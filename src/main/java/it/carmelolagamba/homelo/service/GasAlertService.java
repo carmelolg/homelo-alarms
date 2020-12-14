@@ -45,8 +45,6 @@ public class GasAlertService {
 	@Scheduled(cron = "0/5 * * * * *")
 	private void checkThreshold() {
 		
-		logger.info("Gas alert checking...");
-
 		List<Home> homes = homeDocumentService.findAll();
 		List<Alarm> alertsInPending = alarmDocumentService.findAll();
 
@@ -69,6 +67,9 @@ public class GasAlertService {
 				Detection current = detectionDocumentService.findLastDetection(home, room, Metric.GAS.getValue());
 
 				if (current != null && current.getGas() >= 1000) {
+
+					logger.info("Alarm in pending for house {} in room {}. Gas value {}", home.getCode(), room, current.getGas());
+					
 					infoDetails.setCurrentValue(current.getGas());
 					infoDetails.setDate(current.getDate());
 					checkInfo.addInfo(infoDetails);
@@ -93,7 +94,6 @@ public class GasAlertService {
 			}
 
 		}
-		logger.info("Gas alert checking finished for homes {}", homes.stream().map(h -> h.getCode()).collect(Collectors.toList()));
 
 	}
 }
