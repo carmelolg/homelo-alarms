@@ -44,6 +44,8 @@ public class GasAlertService {
 
 	@Scheduled(cron = "0/5 * * * * *")
 	private void checkThreshold() {
+		
+		logger.info("Gas alert checking...");
 
 		List<Home> homes = homeDocumentService.findAll();
 		List<Alarm> alertsInPending = alarmDocumentService.findAll();
@@ -89,7 +91,9 @@ public class GasAlertService {
 				}
 
 			}
+
 		}
+		logger.info("Gas alert checking finished for homes {}", homes.stream().map(h -> h.getCode()).collect(Collectors.toList()));
 
 	}
 }

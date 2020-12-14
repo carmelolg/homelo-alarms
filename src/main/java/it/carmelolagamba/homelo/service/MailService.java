@@ -75,7 +75,7 @@ public class MailService {
 		});
 
 		// Used to debug SMTP issues
-		session.setDebug(false);
+		session.setDebug(true);
 
 		try {
 			// Create a default MimeMessage object.

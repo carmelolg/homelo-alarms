@@ -27,6 +27,8 @@ public class AliveService {
 	@Scheduled(cron = "0 0/15 * * * *")
 	public void aliveCheck() {
 		
+		logger.info("Alive check in progress..");
+		
 		List<Sensor> sensors = sensorDocumentService.findAll();
 		
 		for (Sensor sensor : sensors) {
@@ -38,7 +40,8 @@ public class AliveService {
 				logger.error("Update del sensore {} non andato a buon fine", sensor.getName());
 			}
 		}
-		
+
+		logger.info("Alive check finished..");
 	}
 	
 	
