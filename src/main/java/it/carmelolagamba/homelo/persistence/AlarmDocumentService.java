@@ -27,6 +27,10 @@ public class AlarmDocumentService extends AbstractDocumentService {
 		logger.debug("Find all home triggered");
 		return find(alarmCollectionService.getCollection(COLLECTION_NAME), new BasicDBObject());
 	}
+	
+	public Alarm findByHouse(String house) {
+		return findOne(alarmCollectionService.getCollection(COLLECTION_NAME), new BasicDBObject("house", house));
+	}
 
 	public Document insert(Alarm alarm) {
 		
@@ -42,7 +46,7 @@ public class AlarmDocumentService extends AbstractDocumentService {
 			builder.append("\"sentAt\": { \"$date\": " + alarm.getSentAt().getTime() + "}},");
 		}
 		
-		builder.append("\"active\": " + alarm.isActive());
+		builder.append("\"disabled\": " + alarm.isDisabled());
 		
 		builder.append("}");
 		

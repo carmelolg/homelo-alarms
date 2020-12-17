@@ -12,7 +12,7 @@ public class Alarm {
 
 	private String house;
 	private Date sentAt;
-	private boolean active;
+	private boolean disabled;
 
 	public Alarm() {
 		// TODO Auto-generated constructor stub
@@ -27,14 +27,14 @@ public class Alarm {
 	public Alarm(String house, boolean active) {
 		super();
 		this.house = house;
-		this.active = active;
+		this.disabled = active;
 	}
 	
 	public Alarm(String house, Date sentAt, boolean active) {
 		super();
 		this.house = house;
 		this.sentAt = sentAt;
-		this.active = active;
+		this.disabled = active;
 	}
 
 	public ObjectId getId() {
@@ -61,12 +61,12 @@ public class Alarm {
 		this.sentAt = sentAt;
 	}
 
-	public boolean isActive() {
-		return active;
+	public boolean isDisabled() {
+		return disabled;
 	}
 
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setDisabled(boolean disabled) {
+		this.disabled = disabled;
 	}
 
 }

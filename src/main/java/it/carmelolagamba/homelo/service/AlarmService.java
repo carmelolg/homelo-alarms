@@ -18,6 +18,11 @@ public class AlarmService {
 	@Autowired
 	private AlarmDocumentService alarmDocumentService;
 
+	public boolean isActive(String house) {
+		Alarm alarm = alarmDocumentService.findByHouse(house);
+		return alarm == null || alarm.isDisabled() == false;
+	}
+	
 	public boolean disable(Alarm alarm) {
 		logger.debug("Disable alarms for {} at {}", alarm.getHouse(), new Date());
 		return alarmDocumentService.insert(alarm) != null;

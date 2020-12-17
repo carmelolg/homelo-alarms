@@ -26,10 +26,16 @@ public class AlarmController {
 			alarmService.enable(house);
 			return "ok";
 		}else {		
-			Alarm alarm = new Alarm(house, enable);
+			Alarm alarm = new Alarm(house, true);
 			boolean check = alarmService.disable(alarm);
 			return check ? "ok" : "ko";
 		}
+	}
+	
+	@ApiOperation(value = "Get alarm")
+	@RequestMapping(method = RequestMethod.GET, path = "/alarm")
+	public boolean getAlarm(@RequestParam("house") String house) {
+		return alarmService.isActive(house);
 	}
 
 }
