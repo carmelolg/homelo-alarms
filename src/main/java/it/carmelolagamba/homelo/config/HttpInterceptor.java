@@ -21,6 +21,11 @@ public class HttpInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 
+		
+		if(request.getRequestURI().contains("ping")) {
+			return true;
+		}
+		
 		logger.debug("Check JWT start");
 
 		String authorization = request.getHeader("Authorization");
