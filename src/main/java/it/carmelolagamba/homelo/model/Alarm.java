@@ -12,6 +12,7 @@ public class Alarm {
 
 	private String house;
 	private Date sentAt;
+	private boolean active;
 
 	public Alarm() {
 		// TODO Auto-generated constructor stub
@@ -21,6 +22,19 @@ public class Alarm {
 		super();
 		this.house = house;
 		this.sentAt = sentAt;
+	}
+	
+	public Alarm(String house, boolean active) {
+		super();
+		this.house = house;
+		this.active = active;
+	}
+	
+	public Alarm(String house, Date sentAt, boolean active) {
+		super();
+		this.house = house;
+		this.sentAt = sentAt;
+		this.active = active;
 	}
 
 	public ObjectId getId() {
@@ -45,6 +59,14 @@ public class Alarm {
 
 	public void setSentAt(Date sentAt) {
 		this.sentAt = sentAt;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 }

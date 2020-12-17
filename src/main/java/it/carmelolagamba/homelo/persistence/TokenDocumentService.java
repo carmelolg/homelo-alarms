@@ -19,6 +19,19 @@ public class TokenDocumentService extends AbstractDocumentService {
 	@Autowired
 	private TokenCollectionService tokenCollectionService;
 
+	public boolean isTokenValid(String jwt) {
+		logger.debug("User [{}]: check if token is present");
+
+		BasicDBObject filters = new BasicDBObject("jwt", jwt);
+		if (count(tokenCollectionService.getCollection(COLLECTION_NAME), filters) > 0) {
+			return true;
+		}
+
+		return false;
+
+	}
+
+	
 	public boolean isTokenPresentByUser(String user) {
 		logger.debug("User [{}]: check if token is present");
 

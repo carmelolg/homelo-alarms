@@ -29,7 +29,28 @@ public class AlarmDocumentService extends AbstractDocumentService {
 	}
 
 	public Document insert(Alarm alarm) {
-		String json = "{\"house\": \"" + alarm.getHouse() + "\",\"sentAt\": { \"$date\": " + alarm.getSentAt().getTime() + "}}";
-		return insert(COLLECTION_NAME, json);
+		
+		StringBuilder builder = new StringBuilder();
+		
+		builder.append("{");
+		
+		if(alarm.getHouse() != null) {
+			builder.append("\"house\": \"" + alarm.getHouse()+ "\",");
+		}
+		
+		if(alarm.getSentAt() != null) {
+			builder.append("\"sentAt\": { \"$date\": " + alarm.getSentAt().getTime() + "}},");
+		}
+		
+		builder.append("\"active\": " + alarm.isActive());
+		
+		builder.append("}");
+		
+		return insert(COLLECTION_NAME, builder.toString());
+	}
+	
+	public void removeAll(String house) {
+		logger.debug("Enable all alarm removing all data for house {}", house);
+		removeByFilters(COLLECTION_NAME, new BasicDBObject("house", house));
 	}
 }
