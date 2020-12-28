@@ -9,7 +9,7 @@ public class CheckDetails {
 	private String room;
 	private Date date;
 	private Metric metric;
-	private int currentValue;
+	private Object currentValue;
 
 	public CheckDetails() {
 	}
@@ -46,11 +46,11 @@ public class CheckDetails {
 		this.metric = metric;
 	}
 
-	public int getCurrentValue() {
+	public Object getCurrentValue() {
 		return currentValue;
 	}
 
-	public void setCurrentValue(int currentValue) {
+	public void setCurrentValue(Object currentValue) {
 		this.currentValue = currentValue;
 	}
 

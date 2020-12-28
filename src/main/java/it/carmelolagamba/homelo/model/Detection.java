@@ -9,9 +9,10 @@ public class Detection {
 
 	@BsonId
 	private ObjectId id;
-	
+
 	private String room, house;
 	private Integer temperature, heatIndex, humidity, gas;
+	private String movement;
 	private Date date;
 
 	public ObjectId getId() {
@@ -68,6 +69,14 @@ public class Detection {
 
 	public void setGas(Integer gas) {
 		this.gas = gas;
+	}
+
+	public String getMovement() {
+		return movement;
+	}
+
+	public void setMovement(String movement) {
+		this.movement = movement;
 	}
 
 	public Date getDate() {

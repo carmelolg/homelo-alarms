@@ -24,6 +24,7 @@ public class HttpInterceptor implements HandlerInterceptor {
 		
 		if(request.getRequestURI().contains("ping")) {
 			return true;
+			
 		}
 		
 		logger.debug("Check JWT start");
