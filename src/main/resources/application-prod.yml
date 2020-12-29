@@ -23,4 +23,4 @@ email:
   smtpAuth: ${MAIL_SMTP_AUTH}
   
 threshold:
-  gas: 1000
+  gas: 1500
