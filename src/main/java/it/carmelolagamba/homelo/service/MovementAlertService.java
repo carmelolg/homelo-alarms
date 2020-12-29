@@ -11,7 +11,7 @@ import it.carmelolagamba.homelo.model.Metric;
 @Component
 public class MovementAlertService extends AlertService {
 
-	@Scheduled(cron = "0/5 * * * * *")
+	@Scheduled(cron = "0 * * * * *")
 	protected void check() {
 		checkThreshold();
 	}
@@ -24,7 +24,7 @@ public class MovementAlertService extends AlertService {
 	@Override
 	protected boolean check(Detection detection) {
 		boolean check = Minutes.minutesBetween(new DateTime(detection.getDate()), new DateTime())
-				.isLessThan(Minutes.minutes(30));
+				.isLessThan(Minutes.minutes(1));
 		// TODO change on shield the value of "true" in true.
 		return Boolean.parseBoolean(detection.getMovement()) && check;
 	}
