@@ -21,3 +21,6 @@ email:
   smtpPort: ${MAIL_SMTP_PORT}
   smtpSSLEnabled: ${MAIL_SMTP_SSL}
   smtpAuth: ${MAIL_SMTP_AUTH}
+  
+threshold:
+  gas: 1000
