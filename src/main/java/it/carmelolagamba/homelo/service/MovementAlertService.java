@@ -25,12 +25,11 @@ public class MovementAlertService extends AlertService {
 	protected boolean check(Detection detection) {
 		boolean check = Minutes.minutesBetween(new DateTime(detection.getDate()), new DateTime())
 				.isLessThan(Minutes.minutes(1));
-		// TODO change on shield the value of "true" in true.
-		return Boolean.parseBoolean(detection.getMovement()) && check;
+		return detection.isMovement() && check;
 	}
 
 	@Override
 	protected Object getValue(Detection detection) {
-		return Boolean.parseBoolean(detection.getMovement()) ? "Presenza avvertita." : "Nessun movimento percepito.";
+		return detection.isMovement() ? "Presenza avvertita." : "Nessun movimento percepito.";
 	}
 }

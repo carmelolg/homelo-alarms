@@ -12,7 +12,7 @@ public class Detection {
 
 	private String room, house;
 	private Integer temperature, heatIndex, humidity, gas;
-	private String movement;
+	private boolean movement;
 	private Date date;
 
 	public ObjectId getId() {
@@ -71,11 +71,11 @@ public class Detection {
 		this.gas = gas;
 	}
 
-	public String getMovement() {
+	public boolean isMovement() {
 		return movement;
 	}
 
-	public void setMovement(String movement) {
+	public void setMovement(boolean movement) {
 		this.movement = movement;
 	}
 
